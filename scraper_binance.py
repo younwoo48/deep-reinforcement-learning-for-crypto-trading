@@ -25,7 +25,7 @@ class BinanceScraper:
         self.save_folder = Path(save_folder)
         self.endpoint_file_paths = endpoint_file_paths
         self.endpoints_df = self.load_endpoints()
-        self.client = Client()
+        self.client = Client(keys.binance_testnet_api_key, keys.binance_testnet_api_secret)
         self.mode = mode
 
     def load_endpoints(self):
@@ -67,8 +67,8 @@ class BinanceScraper:
 
                 metrics = sorted(self.endpoints_df[coin][resolution]["0"].tolist())
 
-                # klines_futures = self.client.get_historical_klines(symbol=coin+"USDT", interval=resolution, start_str=self.start_time_human, end_str=self.end_time_human)
-                klines_futures = self.client.futures_historical_klines(symbol=coin+"USDT", interval=resolution, start_str=self.start_time_human, end_str=self.end_time_human)
+                klines_futures = self.client.get_historical_klines(symbol=coin+"USDT", interval=resolution, start_str=self.start_time_human, end_str=self.end_time_human)
+                # klines_futures = self.client.futures_historical_klines(symbol=coin+"USDT", interval=resolution, start_str=self.start_time_human, end_str=self.end_time_human)
 
                 klines_futures = pd.DataFrame(klines_futures, columns=['open_time','open', 'high', 'low', 'close', 'volume', 'close_time', 'qav','num_trades','taker_base_vol', 'taker_quote_vol', 'ignore'])
                 klines_futures = klines_futures[['open_time','open', 'high', 'low', 'close']].astype(np.float64) # .astype(np.float64) is a must

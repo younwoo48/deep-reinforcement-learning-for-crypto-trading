@@ -78,9 +78,10 @@ class SantimentScraper:
                     for metric in metrics:
                         batch.get(metric, slug=self.COINS_DICT[coin], from_date=self.start_time_human, to_date=self.round_to_latest_four_am(self.end_time).strftime('%Y-%m-%d %H:%M:%S'), interval=resolution)   
 
-                batch_pd = batch.execute(max_workers=8)
+                batch_pd = batch.execute(max_workers=1)
 
                 placeholder = pd.DataFrame(index=pd.date_range(start=self.start_time_human, end=self.end_time_human, freq="1h", inclusive="left"))
+                print(placeholder)
                 placeholder.index = placeholder.index.tz_localize(None)
 
                 for i, item in enumerate(batch_pd):

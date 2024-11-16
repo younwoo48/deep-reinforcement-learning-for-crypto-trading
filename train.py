@@ -1,7 +1,7 @@
 import ray
 from ray import tune
-from config import ppo_config # for One-way strategy
-# from config_long import ppo_config # for Long only strategy
+# from config import ppo_config # for One-way strategy
+from config_long import ppo_config # for Long only strategy
 
 ray.shutdown()
 ray.init()

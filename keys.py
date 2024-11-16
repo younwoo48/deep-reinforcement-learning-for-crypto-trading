@@ -1,3 +1,5 @@
 san_api_key = 'tqzuskc3g4qngbzj_2ilyl7tmngl66ruo'
 bybit_testnet_api_key = ''
 bybit_testnet_api_secret = ''
+binance_testnet_api_key = 'OtRSEApojQBltINaDWNd4TDvjSZdN2fXyRy9BJTMiCVt4JJOyLVhMLqFUwWmg9BH'
+binance_testnet_api_secret = '2Fosf6VwEiE8N32VN5LpxWzg5B73298GJ6U9LQirEGOhsGZrjhp1ud6GoWMmNmB7'
