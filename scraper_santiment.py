@@ -12,7 +12,7 @@ import warnings
 
 class SantimentScraper:
     INTERVALS = {'1h': 60, '24h': 1440}
-    COINS_DICT = {"BAT": "basic-attention-token", "FTM": "fantom", "ETH": "ethereum",  "BTC": "bitcoin", "USDT": "tether"}
+    COINS_DICT = {"BAT": "basic-attention-token", "FTM": "fantom", "ETH": "ethereum",  "BTC": "bitcoin", "USDT": "tether", "SOL": "solana", "DOGE": "doge"}
     LOOKBACK = 168 # hours
     METRICS_24H_DELAY = 4 # hours
 
